@@ -1,57 +1,25 @@
-'use client';
+import { Button } from "@/components/ui/button";
+import prisma from "@/lib/prisma";
+import Link from "next/link";
+import { DownloadLeadsButton } from "./DownloadLeadsButton";
 
 export const dynamic = 'force-dynamic';
 
-import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
-
-export default function AdminLeads() {
-    const [leads, setLeads] = useState<any[]>([]);
-
-    useEffect(() => {
-        fetchLeads();
-    }, []);
-
-    async function fetchLeads() {
-        try {
-            const res = await fetch('/api/leads');
-            const data = await res.json();
-            setLeads(data);
-        } catch (e) { }
-    }
-
-    function downloadCSV() {
-        const headers = ['ID', 'Name', 'Email', 'Phone', 'Message', 'Date'];
-        const rows = leads.map(l => [
-            l.id,
-            l.name,
-            l.email,
-            l.phone,
-            `"${l.message.replace(/"/g, '""')}"`, // Escape quotes
-            new Date(l.createdAt).toLocaleDateString()
-        ]);
-
-        const csvContent = [
-            headers.join(','),
-            ...rows.map(r => r.join(','))
-        ].join('\n');
-
-        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-        const link = document.createElement('a');
-        const url = URL.createObjectURL(blob);
-        link.setAttribute('href', url);
-        link.setAttribute('download', 'leads.csv');
-        link.style.visibility = 'hidden';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+export default async function AdminLeads() {
+    let leads: any[] = [];
+    try {
+        leads = await prisma.lead.findMany({
+            orderBy: { createdAt: 'desc' }
+        });
+    } catch (e) {
+        console.error("Failed to fetch leads:", e);
     }
 
     return (
         <div className="space-y-8">
             <div className="flex justify-between items-center">
                 <h1 className="text-3xl font-bold">Leads Received</h1>
-                <Button onClick={downloadCSV} variant="outline">Download CSV</Button>
+                <DownloadLeadsButton leads={leads} />
             </div>
 
             <div className="rounded-md border bg-card">
