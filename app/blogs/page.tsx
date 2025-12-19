@@ -17,16 +17,21 @@ interface Post {
 }
 
 async function getPosts() {
-    const query = `*[_type == "post"] | order(publishedAt desc) {
-    _id,
-    title,
-    slug,
-    mainImage,
-    publishedAt,
-    "author": author->{name},
-    body
-  }`;
-    return await client.fetch(query);
+    try {
+        const query = `*[_type == "post"] | order(publishedAt desc) {
+        _id,
+        title,
+        slug,
+        mainImage,
+        publishedAt,
+        "author": author->{name},
+        body
+      }`;
+        return await client.fetch(query);
+    } catch (error) {
+        console.error("Error fetching blogs (Build Safe):", error);
+        return [];
+    }
 }
 
 export default async function BlogsPage() {
