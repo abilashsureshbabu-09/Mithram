@@ -74,7 +74,7 @@ export default function Navbar() {
             <nav className="sticky top-0 w-full z-50 bg-white shadow-sm border-b">
                 <div className="container mx-auto px-4 h-20 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2">
-                        <img src="/logo.png" alt="Mithram Constructions" className="h-16 w-auto object-contain" />
+                        <img src="/Mithram/logo.png" alt="Mithram Constructions" className="h-16 w-auto object-contain" />
                     </Link>
 
                     {/* Desktop Navigation */}

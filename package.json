@@ -1,6 +1,7 @@
 {
     "name": "mithram",
     "version": "0.1.0",
+    "homepage": "https://abilashsureshbabu-09.github.io/Mithram",
     "private": true,
     "scripts": {
         "dev": "next dev",
