@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Allow ChatGPT and other AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+Sitemap: https://mithramconstructions.com/sitemap.xml

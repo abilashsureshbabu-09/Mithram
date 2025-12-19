@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+
+        --primary: 188 53% 47%;
+        --primary-foreground: 0 0% 100%;
+
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+
+        --accent: 188 53% 96%;
+        --accent-foreground: 188 53% 47%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 188 53% 47%;
+
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --background: 222.2 84% 4.9%;
+        --foreground: 210 40% 98%;
+
+        --card: 222.2 84% 4.9%;
+        --card-foreground: 210 40% 98%;
+
+        --popover: 222.2 84% 4.9%;
+        --popover-foreground: 210 40% 98%;
+
+        --primary: 188 53% 47%;
+        --primary-foreground: 0 0% 100%;
+
+        --secondary: 217.2 32.6% 17.5%;
+        --secondary-foreground: 210 40% 98%;
+
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
+
+        --accent: 188 53% 15%;
+        --accent-foreground: 188 53% 90%;
+
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 217.2 32.6% 17.5%;
+        --input: 217.2 32.6% 17.5%;
+        --ring: 212.7 26.8% 83.9%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+
+    .stroke-text {
+        -webkit-text-stroke: 1px theme('colors.primary.DEFAULT');
+        /* Using primary color for stroke as typical design pattern, or could be white. 
+           In page.tsx it says text-transparent. 
+           The user wants "Dreams into Reality" in Teal. 
+           "Concrete" is the stroked text.
+           Let's use a white outline for "Concrete" or Primary. 
+           Given the background is dark (overlay on image), white outline makes sense?
+           Actually, let's look at the previous text "Dreams Into" (Teal) and "Reality" (Teal).
+           "Concrete" being stroked.
+           Let's default to a white stroke or primary stroke.
+           If I look at `app/page.tsx`:
+           <span className="text-transparent stroke-text">Concrete</span>
+           
+           I will set it to stroke with white color for now, as it's a dark background.
+        */
+        -webkit-text-stroke: 1px #fff;
+    }
+}
