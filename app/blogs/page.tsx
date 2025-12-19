@@ -4,7 +4,7 @@ import { client, urlFor } from "@/lib/sanity";
 import Link from "next/link";
 import { ArrowRight, Calendar, User } from "lucide-react";
 
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';
 
 interface Post {
     _id: string;

@@ -1,54 +1,12 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
-import { client, urlFor } from "@/lib/sanity";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { urlFor } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
-import { motion } from "framer-motion";
 import { Calendar, MapPin, Briefcase, CheckCircle, Clock } from "lucide-react";
 
-export default function ProjectDetailsPage() {
-    const { slug } = useParams();
-    const [project, setProject] = useState<any>(null);
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchProject = async () => {
-            if (!slug) return;
-            try {
-                const query = `*[_type == "project" && slug.current == $slug][0] {
-                    title,
-                    status,
-                    mainImage,
-                    gallery,
-                    client,
-                    description,
-                    requirements,
-                    roadmap,
-                    publishedAt
-                }`;
-                const data = await client.fetch(query, { slug });
-                setProject(data);
-            } catch (error) {
-                console.error("Error fetching project:", error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        fetchProject();
-    }, [slug]);
-
-    if (isLoading) return (
-        <div className="min-h-screen bg-white flex items-center justify-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#FDC221]"></div>
-        </div>
-    );
-
+export default function ProjectDetails({ project }: { project: any }) {
     if (!project) return (
         <>
             <Navbar />
@@ -184,8 +142,8 @@ export default function ProjectDetailsPage() {
                         </div>
                     </div>
                 </div>
+                <Footer />
             </main>
-            <Footer />
         </>
     );
 }
