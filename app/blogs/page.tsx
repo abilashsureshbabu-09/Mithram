@@ -66,7 +66,7 @@ export default async function BlogsPage() {
                                     <div className="flex gap-4 text-xs text-gray-400 mb-4 uppercase tracking-wider font-bold">
                                         <span className="flex items-center gap-1">
                                             <Calendar className="h-3 w-3 text-primary" />
-                                            {new Date(post.publishedAt || new Date()).toLocaleDateString()}
+                                            {new Date(post.publishedAt || "2024-01-01").toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })}
                                         </span>
                                         <span className="flex items-center gap-1">
                                             <User className="h-3 w-3 text-primary" />
