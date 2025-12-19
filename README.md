@@ -61,11 +61,16 @@ Track leads and view site analytics.
     -   **Projects**: Quick view of project status.
     -   **Blogs**: Manage blog visibility.
 
-### 3. Production Deployment (Netlify)
-The app is configured for deployment on Netlify.
--   Build Command: `npm run build`
--   Publish Directory: `.next`
--   Ensure all environment variables are added in the Netlify Dashboard under **Site settings > Environment variables**.
+### 3.
+## Deployment
+
+The application can be deployed using services that support Next.js, such as **Vercel** or **GitHub Pages** (for static versions). 
+
+### GitHub Deployment (Vercel)
+The easiest way to get a remote link is to:
+1. Push your code to a GitHub repository.
+2. Connect the repository to [Vercel](https://vercel.com).
+3. Vercel will automatically provide a remote link for every push.
 
 ## SEO & Accessibility
 -   `robots.txt` is configured to allow crawling by search engines and AI bots (ChatGPT, GPTBot).
