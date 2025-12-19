@@ -1,12 +1,12 @@
 # Deployment Instructions
 
-1.  **Wait for Build**: The "Deploy to GitHub Pages" action is currently running in the **Actions** tab of your repository.
-2.  **Enable Pages**:
-    *   Go to **Settings** > **Pages**.
-    *   Under "Build and deployment", set **Source** to **GitHub Actions**.
-3.  **Secrets (Optional but Recommended)**:
-    *   If you see "Dataset not found" errors in the build logs, you need to add your Sanity Project ID as a secret.
-    *   Go to **Settings** > **Secrets and variables** > **Actions**.
-    *   Add `NEXT_PUBLIC_SANITY_PROJECT_ID` with your project ID.
+1.  **Deployment Complete (gh-pages branch)**: I have manually deployed your application to the `gh-pages` branch.
+2.  **Activate in Settings**:
+    *   Go to your GitHub Repository -> **Settings** -> **Pages**.
+    *   Under **Build and deployment** > **Source**, select **Deploy from a branch**.
+    *   Under **Branch**, select **gh-pages** and ensure the folder is **/(root)**.
+    *   Click **Save**.
+3.  **Wait**: It usually takes 1-2 minutes for the site to update.
+4.  **Visit**: https://abilashsureshbabu-09.github.io/Mithram/
 
-Your site will be available at: https://abilashsureshbabu-09.github.io/Mithram/
+*Note: You are seeing the README because GitHub was trying to display the "main" branch (source code) instead of the "gh-pages" branch (website).*

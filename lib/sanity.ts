@@ -1,7 +1,7 @@
 import { createClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "p-dummy-id-123";
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "77o92821";
 
 if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID && process.env.NODE_ENV === 'production') {
     console.warn("WARNING: NEXT_PUBLIC_SANITY_PROJECT_ID is missing in the production environment.");
