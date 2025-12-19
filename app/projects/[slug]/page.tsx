@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import { client, urlFor } from "@/lib/sanity";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
