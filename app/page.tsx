@@ -291,9 +291,10 @@ function LeadForm() {
                 <select
                     name="service"
                     required
+                    defaultValue=""
                     className="w-full h-12 px-4 bg-gray-50 border border-gray-200 focus:outline-none focus:border-primary transition-colors text-gray-600"
                 >
-                    <option value="" disabled selected>Select Service</option>
+                    <option value="" disabled>Select Service</option>
                     <option value="Industrial Construction">Industrial Construction</option>
                     <option value="Residential Construction">Residential Construction</option>
                     <option value="Commercial Projects">Commercial Projects</option>
